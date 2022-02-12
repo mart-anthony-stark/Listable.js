@@ -9,4 +9,4 @@ const table1 = Listable("asd", {
   ],
 });
 
-console.log({ table1 });
+table1.addRow(["Mart Salazar", 18, "sad"]);
