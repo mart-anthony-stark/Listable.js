@@ -54,13 +54,17 @@ const Listable = (id, options = {}) => {
       });
     });
 
-    console.log({ headerCells });
     const rows = data.map((d) => {
-      return d;
+      const values = [];
+      for (let value in d) values.push(value);
+      return values;
     });
-    console.log({ rows });
+    console.log(rows);
 
     addHead(headerCells);
+    rows.forEach((row) => {
+      addRow(row);
+    });
   }
 
   return {
