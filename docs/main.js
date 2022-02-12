@@ -1,4 +1,4 @@
-const table1 = Listable("asd", {
+const table1 = Listable("table", {
   data: [
     {
       head1: 1,
