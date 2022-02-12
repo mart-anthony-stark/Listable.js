@@ -1,0 +1,39 @@
+.listable {
+  --c-el-bg: rgb(245, 245, 245);
+  --c-table-bg: rgb(219, 219, 219);
+  --c-cell-hover: rgb(230, 230, 230);
+  --c-text: black;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 5px;
+  background: var(--c-el-bg);
+}
+.listable input#listable-search {
+  padding: 5px;
+  align-self: flex-start;
+}
+.listable table {
+  background: var(--c-table-bg);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--c-text);
+  border-collapse: collapse;
+}
+.listable table td,
+.listable table th {
+  padding: 10px;
+  text-align: center;
+}
+.listable table thead {
+  border-bottom: 1px solid var(--c-text);
+}
+.listable table tbody tr:hover {
+  cursor: pointer;
+  background: var(--c-cell-hover);
+}
