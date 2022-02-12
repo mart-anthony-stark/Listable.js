@@ -74,9 +74,16 @@ const Listable = (id, options = {}) => {
   window.customElements.define("list-table", ListableComponent);
   const table = instanceEl.querySelector("table");
   const tbody = table.querySelector("tbody");
+  const thead = table.querySelector("thead");
 
-  const addHead = () => {
+  const addHead = (row) => {
     const tr = document.createElement("tr");
+    row.forEach((data) => {
+      const th = document.createElement("th");
+      th.innerHTML = `<span>${data}</span>`;
+      tr.appendChild(th);
+    });
+    thead.appendChild(tr);
   };
 
   const addRow = (row) => {
