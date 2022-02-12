@@ -1,15 +1,6 @@
 const Listable = (id, options = {}) => {
-  let instanceEl;
-  // Custom Element
-  class ListableComponent extends HTMLElement {
-    constructor() {
-      super();
-      const className = this.getAttribute("class");
-      const id = this.getAttribute("#");
-      const theme = this.getAttribute("theme");
-
-      const template = document.createElement("template");
-      template.innerHTML = `
+  const template = document.createElement("div");
+  template.innerHTML = `
         <style>
         .listable {
             display: flex;
@@ -59,19 +50,8 @@ const Listable = (id, options = {}) => {
         </table>
     </div>
       `;
-
-      this.attachShadow({ mode: "open" });
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-      const root = this.shadowRoot.querySelector(".listable");
-
-      if (!options.data) {
-        throw "Data property must be provided in options";
-      }
-      instanceEl = root;
-    }
-  }
-  window.customElements.define("list-table", ListableComponent);
+  const instanceEl = document.querySelector(`#${id}`);
+  instanceEl.appendChild(template);
   const table = instanceEl.querySelector("table");
   const tbody = table.querySelector("tbody");
   const thead = table.querySelector("thead");
@@ -97,7 +77,7 @@ const Listable = (id, options = {}) => {
   };
 
   return {
-    el: instanceEl,
+    // el: instanceEl,
     addHead,
     addRow,
   };
