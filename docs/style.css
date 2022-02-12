@@ -1,19 +1,22 @@
-table {
+.listable {
+    
+}
+.listable table {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   border: 1px solid black;
   border-collapse: collapse;
 }
-table td,
-table th {
+.listable table td,
+.listable table th {
   padding: 10px;
   text-align: center;
 }
-table thead {
+.listable table thead {
   border-bottom: 1px solid black;
 }
-table tbody tr:hover {
+.listable table tbody tr:hover {
   cursor: pointer;
   background: rgb(230, 230, 230);
 }
