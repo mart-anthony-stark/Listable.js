@@ -6,6 +6,13 @@ const table1 = Listable("table", {
       head3: 3,
       head4: 4,
     },
+    {
+      head1: 1,
+      head2: 2,
+      head3: 3,
+      head4: 4,
+      head5: 5,
+    },
   ],
 });
 
