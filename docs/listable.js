@@ -1,12 +1,15 @@
-class ListableComponent extends HTMLElement {
-  constructor() {
-    super();
-    const className = this.getAttribute("class");
-    const id = this.getAttribute("#");
-    const theme = this.getAttribute("theme");
+const Listable = (id, options = {}) => {
+  let instanceEl = "asd";
+  // Custom Element
+  class ListableComponent extends HTMLElement {
+    constructor() {
+      super();
+      const className = this.getAttribute("class");
+      const id = this.getAttribute("#");
+      const theme = this.getAttribute("theme");
 
-    const template = document.createElement("template");
-    template.innerHTML = `
+      const template = document.createElement("template");
+      template.innerHTML = `
         <style>
         .listable {
             display: flex;
@@ -49,40 +52,28 @@ class ListableComponent extends HTMLElement {
         <input id="listable-search" type="text" placeholder="Search">
         <table>
             <thead>
-                <th>Col 1</th>
-                <th>Col 2</th>
-                <th>Col 3</th>
-                <th>Col 4</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
+               
             </tbody>
         </table>
     </div>
       `;
 
-    this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-    const root = this.shadowRoot.querySelector(".listable");
-  }
-}
+      const root = this.shadowRoot.querySelector(".listable");
 
-window.customElements.define("list-table", ListableComponent);
-const Listable = (id, options = {}) => {
-  if (!options.table) {
-    throw "Data must be provided in options";
+      if (!options.data) {
+        throw "Data property must be provided in options";
+      }
+      console.log(root);
+      instanceEl = root;
+    }
   }
-  console.log(id);
+  window.customElements.define("list-table", ListableComponent);
+  return {
+    el: instanceEl,
+  };
 };
