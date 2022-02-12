@@ -73,15 +73,15 @@ const Listable = (id, options = {}) => {
   }
   window.customElements.define("list-table", ListableComponent);
   const table = instanceEl.querySelector("table");
-  console.log(table);
-  const addRow = () => {
+  const tbody = table.querySelector("tbody");
+  const addRow = (row) => {
     const tr = document.createElement("tr");
-    for (let i = 0; i < 5; i++) {
+    row.forEach((data) => {
       const td = document.createElement("td");
-      td.innerHTML = `<span>${i}</span>`;
+      td.innerHTML = `<span>${data}</span>`;
       tr.appendChild(td);
-    }
-    table.appendChild(tr);
+    });
+    tbody.appendChild(tr);
   };
 
   return {
