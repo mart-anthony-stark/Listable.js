@@ -1,5 +1,5 @@
 const Listable = (id, options = {}) => {
-  let instanceEl = "asd";
+  let instanceEl;
   // Custom Element
   class ListableComponent extends HTMLElement {
     constructor() {
@@ -68,12 +68,24 @@ const Listable = (id, options = {}) => {
       if (!options.data) {
         throw "Data property must be provided in options";
       }
-      console.log(root);
       instanceEl = root;
     }
   }
   window.customElements.define("list-table", ListableComponent);
+  const table = instanceEl.querySelector("table");
+  console.log(table);
+  const addRow = () => {
+    const tr = document.createElement("tr");
+    for (let i = 0; i < 5; i++) {
+      const td = document.createElement("td");
+      td.innerHTML = `<span>${i}</span>`;
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  };
+
   return {
     el: instanceEl,
+    addRow,
   };
 };
