@@ -77,7 +77,7 @@ const Listable = (id, options = {}) => {
   };
 
   return {
-    // el: instanceEl,
+    el: instanceEl,
     addHead,
     addRow,
   };
