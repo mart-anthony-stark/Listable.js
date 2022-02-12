@@ -9,4 +9,8 @@ const table1 = Listable("asd", {
   ],
 });
 
-table1.addRow(["Mart Salazar", 18, "Happy Homes Fairview"]);
+table1.addHead(["Fullname", "Age", "Address"]);
+table1.addRow(["Mart Salazar", 20, "Happy Homes Fairview"]);
+table1.addRow(["Mart Salazar", 20, "Happy Homes Fairview"]);
+table1.addRow(["Mart Salazar", 20, "Happy Homes Fairview"]);
+table1.addRow(["Mart Salazar", 20, "Happy Homes Fairview"]);
