@@ -12,6 +12,8 @@ const Listable = (id, options = {}) => {
         </table>
     </div>
       `;
+  if (options.data) initializeTable(options.data);
+
   const instanceEl = document.querySelector(`#${id}`);
   instanceEl.appendChild(template);
   const table = instanceEl.querySelector("table");
@@ -44,3 +46,14 @@ const Listable = (id, options = {}) => {
     addRow,
   };
 };
+
+function initializeTable(data) {
+  console.log(data);
+  const header = data.map(d => {
+    
+  })
+  const rows = data.map((d) => {
+    return d;
+  });
+  console.log({ rows });
+}
