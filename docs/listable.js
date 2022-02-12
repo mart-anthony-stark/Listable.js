@@ -74,6 +74,11 @@ const Listable = (id, options = {}) => {
   window.customElements.define("list-table", ListableComponent);
   const table = instanceEl.querySelector("table");
   const tbody = table.querySelector("tbody");
+
+  const addHead = () => {
+    const tr = document.createElement("tr");
+  };
+
   const addRow = (row) => {
     const tr = document.createElement("tr");
     row.forEach((data) => {
@@ -86,6 +91,7 @@ const Listable = (id, options = {}) => {
 
   return {
     el: instanceEl,
+    addHead,
     addRow,
   };
 };
