@@ -49,9 +49,18 @@ const Listable = (id, options = {}) => {
 
 function initializeTable(data) {
   console.log(data);
-  const header = data.map(d => {
-    
-  })
+  const headerCells = [];
+  let header = data.map((d) => {
+    return Object.keys(d);
+  });
+
+  header.forEach((h) => {
+    h.forEach((cell) => {
+      headerCells.push(cell);
+    });
+  });
+
+  console.log(headerCells);
   const rows = data.map((d) => {
     return d;
   });
