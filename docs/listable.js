@@ -1,12 +1,12 @@
-  class ListableComponent extends HTMLElement {
-    constructor() {
-      super();
-      const className = this.getAttribute("class");
-      const id = this.getAttribute("id");
-      const theme = this.getAttribute("theme");
+class ListableComponent extends HTMLElement {
+  constructor() {
+    super();
+    const className = this.getAttribute("class");
+    const id = this.getAttribute("#");
+    const theme = this.getAttribute("theme");
 
-      const template = document.createElement("template");
-      template.innerHTML = `
+    const template = document.createElement("template");
+    template.innerHTML = `
         <style>
         .listable {
             display: flex;
@@ -45,7 +45,7 @@
           }
           </style>
 
-          <div class="listable">
+        <div class="listable" id=${id}>
         <input id="listable-search" type="text" placeholder="Search">
         <table>
             <thead>
@@ -72,14 +72,17 @@
     </div>
       `;
 
-      this.attachShadow({ mode: "open" });
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-      const root = this.shadowRoot.querySelector(".listable");
-    }
+    const root = this.shadowRoot.querySelector(".listable");
   }
+}
 
-  window.customElements.define("list-table", ListableComponent);
-const Listable = () => {
-
+window.customElements.define("list-table", ListableComponent);
+const Listable = (id, options = {}) => {
+  if (!options.table) {
+    throw "Data must be provided in options";
+  }
+  console.log(id);
 };
