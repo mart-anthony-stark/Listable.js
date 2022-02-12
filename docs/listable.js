@@ -1,4 +1,3 @@
-const Listable = () => {
   class ListableComponent extends HTMLElement {
     constructor() {
       super();
@@ -81,4 +80,6 @@ const Listable = () => {
   }
 
   window.customElements.define("list-table", ListableComponent);
+const Listable = () => {
+
 };
